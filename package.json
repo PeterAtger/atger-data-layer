@@ -1,0 +1,21 @@
+{
+  "name": "@atger/data-layer",
+  "version": "1.0.0",
+  "description": "Scandiweb datalayer events for PWA studio",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "author": "Peter Atef <info@scandiweb.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.0.1",
+    "eslint": "^8.7.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "react": "~17.0.1"
+  },
+  "scripts": {
+    "build": "rm -r ./lib/ && tsc"
+  }
+}
