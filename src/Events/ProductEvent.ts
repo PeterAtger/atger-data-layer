@@ -5,9 +5,9 @@ export const fireProductEvent = ({ eventName, currency, value, items }: ProductE
     initDataLayer();
     const event: ProductEventType = {
         event: eventName,
-        currency,
-        value,
         ecommerce: {
+            currency,
+            value,
             items
         }
     };

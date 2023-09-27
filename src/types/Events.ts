@@ -72,36 +72,30 @@ export type EventItemType = {
     quantity?: number
 }
 
-// Final Event Types
-export interface BaseEventType {
-    event: string
+// Ecommerce Types
+interface BaseEcommerceType {
+    items: EventItemType[]
 }
 
-export interface EcommerceEventType extends BaseEventType {
-    ecommerce: {
-        items: EventItemType[]
-    }
-}
-
-export interface ProductEventType extends EcommerceEventType {
+interface ProductEcommerceType extends BaseEcommerceType {
     currency: string,
     value: number,
 }
 
-export interface ListEventType extends EcommerceEventType {
+interface ListEcommerceType extends BaseEcommerceType {
     item_list_id: string,
     item_list_name: string
 }
 
-export interface ShippingEventType extends ProductEventType {
+interface ShippingEcommerceType extends ProductEcommerceType {
     shipping_tier: string,
 }
 
-export interface PaymentEventType extends ProductEventType {
+interface PaymentEcommerceType extends ProductEcommerceType {
     payment_type: string,
 }
 
-export interface PurchaseEventType extends ProductEventType, ShippingEventType {
+interface PurchaseEcommerceType extends ProductEcommerceType, ShippingEcommerceType {
     transaction_id: string,
     order_payment_method: string,
     tax: number,
@@ -110,4 +104,36 @@ export interface PurchaseEventType extends ProductEventType, ShippingEventType {
     customer_email?: string,
     customer_id?: string,
     customer_status?: string,
+}
+
+
+// Final Event Types
+
+export interface BaseEventType {
+    event: string
+}
+
+export interface EcommerceEventType extends BaseEventType {
+    ecommerce: BaseEcommerceType
+}
+
+export interface ProductEventType extends EcommerceEventType {
+    ecommerce: ProductEcommerceType
+}
+
+export interface ListEventType extends EcommerceEventType {
+    ecommerce: ListEcommerceType
+}
+
+export interface ShippingEventType extends ProductEventType {
+    ecommerce: ShippingEcommerceType
+
+}
+
+export interface PaymentEventType extends ProductEventType {
+    ecommerce: PaymentEcommerceType
+}
+
+export interface PurchaseEventType extends ProductEventType, ShippingEventType {
+    ecommerce: PurchaseEcommerceType
 }

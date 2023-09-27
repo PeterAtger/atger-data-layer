@@ -5,9 +5,9 @@ export const fireListEvent = ({ eventName, item_list_id, item_list_name, items }
     initDataLayer();
     const event: ListEventType = {
         event: eventName,
-        item_list_id,
-        item_list_name,
         ecommerce: {
+            item_list_id,
+            item_list_name,
             items
         }
     };
