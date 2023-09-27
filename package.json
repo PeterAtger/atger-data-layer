@@ -1,6 +1,6 @@
 {
   "name": "@atger/data-layer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scandiweb datalayer events for PWA studio",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
